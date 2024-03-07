@@ -9,4 +9,15 @@ else:
     print("running and strength training is better")
 #running and strength training is better
 
+
+
+
+
+X=True
+Y=False
+W= X!=Y
+print(W)
+
 #True
+     
+
