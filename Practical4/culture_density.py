@@ -16,7 +16,7 @@ a=1
 while density<0.9:
     density*=2
     a+=1
-    print(f'the cell density on day {a} is {density}')
+    print(f'the cell density on day {a} is {density}')#This is formatted output in python
 print(f"Cell density does not exceed 0.9 until day {a-1} and will exceed from day {a} onwards")
 
 
