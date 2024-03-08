@@ -7,9 +7,7 @@ while density<0.9:
      a=a+1
 When density exceeds 0.9, a is the number of days calculated
 
-
-
-"""
+"""#This is a new way to mark the pseudocode
 
 
 density=0.05
