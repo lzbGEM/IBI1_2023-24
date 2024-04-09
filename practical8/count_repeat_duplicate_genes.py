@@ -24,18 +24,18 @@ with open("Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa", 'r', encoding="UTF-8")
     seqs = re.findall(r'duplication.+\n((?:[^>].*\n)+)', a)  # Find the string that does not begin with > immediately after the line break that contains duplication
     dict = {name: seq for name, seq in zip(names, seqs)}  # Dictionary generation simplifies the code, here zip makes the two lists correspond one to one
 
-# Process each gene sequence to count the repeats and write the results to a new file
 with open(new_file_name, 'w', encoding="UTF-8") as output_file:
     for key, value in dict.items():
-        # Count the repeats in the sequence using the user-provided repeat sequence
-        repeat_count = count_repeats(value, file_name)
-        # Write the gene name and sequence with the repeat count to the output file
-        output_file.write(f"{key} (Repeat Count: {repeat_count})\n")
-        output_file.write(value)
+        # Remove all newline characters from the sequence and count the repeats
+        seq_without_newlines = re.sub(r'\n', '', value)
+        repeat_count = count_repeats(seq_without_newlines, file_name)
+        # Write the gene name and sequence with the repeat count to the output file, all on a single line
+        output_file.write(f"{key} (Repeat Count: {repeat_count}) {seq_without_newlines}\n")
 
 # Read and print the contents of the new file
 with open(new_file_name, 'r', encoding="UTF-8") as output_file:
     print(output_file.read())
+
 
 
 
