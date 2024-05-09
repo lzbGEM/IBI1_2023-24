@@ -1,0 +1,13 @@
+
+Human SC6A4 and mouse SC6A4: alignment score is 3092 and identical amino acid percent is 0.9253968253968254
+Human SC6A4  and rat SC6A4: alignment score is 3063 and identical amino acid percent is 0.9174603174603174 
+Mouse SC6A4 and rat SC6A4: alignment score is 3215 and identical amino acid percent is 0.9682539682539683
+
+
+Mouse and rat 's sequences are most similar
+
+Human's gene SC6A4 is more like mouse than rat 
+
+Therefore mouse is a better model for studying
+variation	in	the	SLC6A4	gene	in	humans 
+
