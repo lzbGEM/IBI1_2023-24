@@ -7,7 +7,7 @@ with open("Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa", 'r', encoding="UTF-8")
     dict = {name: seq for name, seq in zip(names, seqs)}#Dictionary generation simplifies the code, here zip makes the two lists correspond one to one
     output_str = ""
     for key, value in dict.items():
-        output_str += f"{key}\n{value}\n\n"#Output the contents of the dictionary as a string
+        output_str += f">{key}_mRNA\n{value}\n"#Output the contents of the dictionary as a string
 with open('duplicate_genes.fa', 'w', encoding="UTF-8") as output_file:#Write it in a new file
     output_file.write(output_str)
 with open('duplicate_genes.fa', 'r', encoding="UTF-8") as output_file:
