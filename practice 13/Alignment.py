@@ -107,38 +107,7 @@ print(f"Mouse SC6A4 and rat SC6A4: alignment score is {score} and identical amin
 
 
 
-# distance = 0
-# for i in range(len(seq1)):
-#     if seq1[i] != seq3[i]:
-#         distance += 1
-# similarity = 1 - distance / len(seq3)
 
-# score_vector = []
-# for i in range(len(seq1)):
-#     index1 = amino_index.get(seq1[i])
-#     index2 = amino_index.get(seq3[i])
-#     score = BLOSUM62.loc[index1, seq3[i]]
-#     score_vector.append(score)
-        
-# alignment_score = sum(score_vector)
-# print(f"Human SC6A4  and rat SC6A4: alignment score is {alignment_score} and identical amino acid percent is {similarity}")
-
-
-# distance = 0
-# for i in range(len(seq3)):
-#     if seq3[i] != seq2[i]:
-#         distance += 1
-# similarity = 1 - distance / len(seq1)
-
-# score_vector = []
-# for i in range(len(seq1)):
-#     index3 = amino_index.get(seq3[i])
-#     index2 = amino_index.get(seq2[i])
-#     score = BLOSUM62.loc[index2, seq3[i]]
-#     score_vector.append(score)
-        
-# alignment_score = sum(score_vector)
-# print(f"Mouse SC6A4 and rat SC6A4: alignment score is {alignment_score} and identical amino acid percent is {similarity}")
 
 
 
