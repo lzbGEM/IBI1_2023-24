@@ -23,7 +23,7 @@ for r in range(0, 101, 10):
         R += new_R
         I_arr.append(I)
 
-    plt.plot(range(1000), I_arr, label=f'{r}% Vaccination Rate',color=cm.viridis(r))#Plot a plot entitled Vaccination Rate, with color numbers selected based on the vaccination rate parameters
+    plt.plot(range(1000), I_arr, label=f'{r}% Vaccination Rate')#Plot a plot entitled Vaccination Rate
 
 
 plt.xlabel('Time')
