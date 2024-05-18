@@ -36,7 +36,7 @@ plt.legend()
 plt.show()
 
 
-plt.savefig("SIR.png",type="png")#save
+plt.savefig("SIR.png")#save
 
 
 
