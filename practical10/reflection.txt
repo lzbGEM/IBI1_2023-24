@@ -1,0 +1,4 @@
+I learn a lot from this practical
+I think it is difficult to change the thinking logic from a biological model to a mathematical model to a code model
+So I realized that the most difficult thing is the ability to understand and the ability to model, and to understand a biological model and find a way to show it in code form, which I found very interesting.
+One of the most important things I learned was how to model
