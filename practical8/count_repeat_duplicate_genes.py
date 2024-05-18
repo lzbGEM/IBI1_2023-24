@@ -4,13 +4,13 @@ import re
 def count_repeats(seq, repeat):
     count = 0
     start = 0
-    while True:
+    while True:# Enter an infinite loop to repeatedly search for the substring
         start = seq.find(repeat, start)
-        if start == -1:
+        if start == -1:# If the find method returns -1, it means 'repeat' is not found, so break the loop
             break
         else:
             count += 1
-            start += 1 
+            start += 1  #Move the start index forward to search for the next occurrence of 'repeat'
     return count
 
 # Ask the user for input on which repeat sequence to look for
