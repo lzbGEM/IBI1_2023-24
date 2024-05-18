@@ -11,6 +11,13 @@ population = np.zeros((100, 100), dtype=int)
 outbreak = np. random . choice (range(100) ,2) 
 population [ outbreak [0] , outbreak [ 1 ] ] = 1 
 
+
+plt.figure(figsize=(6, 4), dpi=150)#draw the first infected person
+plt.imshow(population, cmap='viridis', vmin=0, vmax=2, interpolation='nearest')
+plt.title('Initial State') 
+plt.show()
+
+
 for t in range(100):
     # Find infected points
     infectedIndex = np.where(population == 1)
