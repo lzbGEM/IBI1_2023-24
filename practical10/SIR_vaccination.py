@@ -33,7 +33,7 @@ plt.legend()
 
 
 plt.show()
-plt.savefig("SIR_Model_Different_Vaccination_Rates.png",type="png")
+plt.savefig("SIR_Model_Different_Vaccination_Rates.png")
 
 
 
