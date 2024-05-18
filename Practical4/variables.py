@@ -17,7 +17,11 @@ X=True
 Y=False
 W= X!=Y
 print(W)
-
 #True
-     
+# W is true if X is True and Y is False
+#    X       Y         W
+#   True    True      False
+#   True    False     True
+#   False   True      True
+#   False   False     False
 
