@@ -25,19 +25,15 @@ realtime_DOM = end_time - start_time
 element = DOM_tree.documentElement
 
 # Retrieve all 'term' elements within the document
-terms = element.getElementsByTagName('term')
+dic = element.getElementsByTagName('term')
 
 # Loop through each 'term' element
-for term in terms:
-    # Find the 'namespace' child element and get its value
-    name = term.getElementsByTagName('namespace')[0].firstChild.nodeValue
-    
-    # Increment the appropriate counter based on the namespace value
-    if name == "biological_process":
+for term in dic:
+    if term.getElementsByTagName('namespace')[0].firstChild.nodeValue == "biological_process":
         biological_process += 1
-    elif name == "molecular_function":
+    elif term.getElementsByTagName('namespace')[0].firstChild.nodeValue == "molecular_function":
         molecular_function += 1
-    elif name == "cellular_component":
+    elif term.getElementsByTagName('namespace')[0].firstChild.nodeValue == "cellular_component":
         cellular_component += 1
 
 # Print the counts for each ontology category using DOM
@@ -68,13 +64,15 @@ import xml.sax
 class SAX_API(xml.sax.ContentHandler):#study this method from https://blog.csdn.net/qq_33210042/article/details/117706970
     def __init__(self):
         # Initialize counters and current state variables
-        self.count = {'molecular_function': 0, 'biological_process': 0, 'cellular_component': 0}
-        self.current_element = ''
-        self.namespace = ''
+       self.biological_process = 0
+       self.molecular_function = 0
+       self.cellular_component = 0
+       self.current_element = ''
+       self.namespace = ''
 
     # Method to process the start of an element
-    def startElement(self, name, attributes):
-        self.current_element = name
+    def startElement(self, a, attributes):
+        self.current_element = a
 
     # Method to process the characters within an element
     def characters(self, content):
@@ -82,12 +80,14 @@ class SAX_API(xml.sax.ContentHandler):#study this method from https://blog.csdn.
             self.namespace += content
 
     # Method to process the end of an element
-    def endElement(self, name):
+    def endElement(self, a):
         if self.current_element == 'namespace':
-            # Increment the appropriate counter based on the namespace value
-            if self.namespace in self.count:
-                self.count[self.namespace] += 1
-            # Reset the current_element and namespace
+            if self.namespace == 'molecular_function':
+                self.molecular_function += 1
+            elif self.namespace == 'biological_process':
+                self.biological_process += 1
+            elif self.namespace == 'cellular_component':
+                self.cellular_component += 1
             self.current_element = ''
             self.namespace = ''
 
@@ -106,14 +106,14 @@ parser.parse("go_obo.xml")
 end_time = datetime.datetime.now()
 realtime_SAX = end_time - start_time
 
-print(f'SAX:term number of biological_process is {handler.count["biological_process"]}')
-print(f'SAX:term number of molecular_function is {handler.count["molecular_function"]}')
-print(f'SAX:term number of cellular_component is {handler.count["cellular_component"]}')
+print(f'SAX:term number of biological_process is {handler.biological_process}')
+print(f'SAX:term number of molecular_function is {handler.molecular_function}')
+print(f'SAX:term number of cellular_component is {handler.cellular_component}')
 print(f'SAX time {realtime_SAX}')
 
 # Plot the results using matplotlib
 categories = ['biological_process', 'molecular_function', 'cellular_component']
-y_counts = [handler.count[category] for category in categories]
+y_counts = [handler.biological_process,handler.molecular_function,handler.cellular_component]
 plt.bar(categories, y_counts)
 plt.show()
 plt.clf()
