@@ -1,4 +1,3 @@
-
 import re
 
 def count_repeats(seq, repeat):
@@ -30,8 +29,9 @@ with open(new_file_name, 'w', encoding="UTF-8") as output_file:
         # Remove all newline characters from the sequence and count the repeats
         seq_without_newlines = re.sub(r'\n', '', value)
         repeat_count = count_repeats(seq_without_newlines, file_name)
+        if repeat_count != 0:
         # Write the gene name and sequence with the repeat count to the output file, all on a single line
-        output_file.write(f">{key} (Repeat Count: {repeat_count})\n {seq_without_newlines}\n")
+            output_file.write(f">{key}_mRNA (Repeat Count: {repeat_count})\n {seq_without_newlines}\n")
 
 # Read and print the contents of the new file
 with open(new_file_name, 'r', encoding="UTF-8") as output_file:
